@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Dashboard - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-purple': '#bf5af2', 'brand-dark': '#1c1c1e' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-brand-black">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-semibold tracking-tight">EdTech AI <span
+                    class="text-accent-purple text-sm ml-2">For Mentors</span></div>
+            <div class="flex gap-4 items-center">
+                <button
+                    class="bg-accent-purple/10 text-accent-purple px-4 py-1.5 rounded-full text-sm font-medium border border-accent-purple/20 hover:bg-accent-purple/20 transition-colors">+
+                    Create Content</button>
+                <button onclick="logout()"
+                    class="text-sm font-medium text-gray-300 hover:text-white ml-4">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-6 max-w-7xl mx-auto">
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Sidebar / Stats -->
+            <div class="md:col-span-1 space-y-6">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <p class="text-sm text-gray-400 mb-1">Total Students</p>
+                    <p class="text-3xl font-bold">142</p>
+                    <p class="text-xs text-green-400 mt-2">+12 this week</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl">
+                    <p class="text-sm text-gray-400 mb-1">Revenue</p>
+                    <p class="text-3xl font-bold">$3,240</p>
+                    <p class="text-xs text-gray-500 mt-2">Active Subscriptions: 15</p>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="md:col-span-3">
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-6">Your Content</h2>
+
+                    <div class="glass-panel rounded-2xl overflow-hidden">
+                        <table class="w-full text-left">
+                            <thead class="bg-white/5 border-b border-white/5">
+                                <tr>
+                                    <th class="p-4 text-sm font-medium text-gray-400">Course Name</th>
+                                    <th class="p-4 text-sm font-medium text-gray-400">Students</th>
+                                    <th class="p-4 text-sm font-medium text-gray-400">Rating</th>
+                                    <th class="p-4 text-sm font-medium text-gray-400">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-medium">Full Stack Python Mastery</td>
+                                    <td class="p-4 text-gray-400">89</td>
+                                    <td class="p-4 text-yellow-400">★ 4.9</td>
+                                    <td class="p-4"><span
+                                            class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs">Active</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-medium">Advanced System Design</td>
+                                    <td class="p-4 text-gray-400">53</td>
+                                    <td class="p-4 text-yellow-400">★ 4.8</td>
+                                    <td class="p-4"><span
+                                            class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs">Active</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="p-4 text-center border-t border-white/5">
+                            <button class="text-sm text-gray-400 hover:text-white">View All Content</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Student Activity</h2>
+                    <div class="space-y-4">
+                        <div class="glass-panel p-4 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-700"></div>
+                                <div>
+                                    <p class="font-medium">Alex Johnson</p>
+                                    <p class="text-sm text-gray-400">Completed "API Security Basics"</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">2h ago</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-700"></div>
+                                <div>
+                                    <p class="font-medium">Maria Garcia</p>
+                                    <p class="text-sm text-gray-400">Subscribed to "Full Stack Python"</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">5h ago</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

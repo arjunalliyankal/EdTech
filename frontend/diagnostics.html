@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnostics - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide-enter {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center">
+
+    <div class="w-full max-w-3xl px-6">
+        <div class="mb-8">
+            <div class="flex justify-between text-sm text-gray-400 mb-2">
+                <span>Profile</span>
+                <span class="text-accent-blue font-medium">Diagnostics</span>
+                <span>Analysis</span>
+            </div>
+            <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-blue w-2/4 transition-all duration-500"></div>
+            </div>
+        </div>
+
+        <div class="glass-panel p-8 rounded-2xl slide-enter">
+            <h2 class="text-2xl font-bold mb-2">Skill Assessment</h2>
+            <p class="text-gray-400 mb-8">Answer a few questions to help us identify your skill gaps.</p>
+
+            <form id="diagnosticForm">
+                <div id="questionsContainer" class="space-y-8">
+                    <!-- Questions injected here -->
+                    <div class="animate-pulse flex space-x-4">
+                        <div class="flex-1 space-y-4 py-1">
+                            <div class="h-4 bg-white/10 rounded w-3/4"></div>
+                            <div class="space-y-2">
+                                <div class="h-10 bg-white/5 rounded"></div>
+                                <div class="h-10 bg-white/5 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Tell us about concepts you struggle with
+                        (Optional)</label>
+                    <textarea id="struggles"
+                        class="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-white resize-none h-24 focus:border-accent-blue focus:outline-none placeholder-gray-600"
+                        placeholder="e.g. Recursion, Pointer arithmetic..."></textarea>
+                </div>
+
+                <div class="mt-8 flex justify-end">
+                    <button type="submit"
+                        class="bg-accent-blue text-white px-8 py-3 rounded-full font-medium hover:bg-blue-600 transition-colors">Analyze
+                        My Skills</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+
+        let questions = [];
+
+        async function loadQuestions() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const topic = urlParams.get('topic');
+            let apiUrl = '/api/v1/assessment/diagnostic';
+            if (topic) {
+                apiUrl += `?topic=${encodeURIComponent(topic)}`;
+            }
+
+            try {
+                const res = await fetch(apiUrl, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                questions = await res.json();
+                renderQuestions();
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = questions.map((q, idx) => `
+                <div class="question-block">
+                    <p class="text-lg font-medium mb-4"><span class="text-accent-blue mr-2">${idx + 1}.</span>${q.text}</p>
+                    ${q.type === 'mcq' ? `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        ${q.options && q.options.map(opt => `
+                            <label class="cursor-pointer">
+                                <input type="radio" name="${q.id}" value="${opt}" class="peer sr-only">
+                                <div class="bg-brand-dark border border-white/10 p-4 rounded-xl hover:border-white/30 peer-checked:border-accent-blue peer-checked:bg-accent-blue/10 transition-all text-sm">
+                                    ${opt}
+                                </div>
+                            </label>
+                        `).join('')}
+                    </div>
+                    ` : `
+                    <textarea name="${q.id}" class="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-white resize-none h-32 focus:border-accent-blue focus:outline-none" placeholder="Type your answer here..."></textarea>
+                    `}
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('diagnosticForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = "Analyzing w/ Gemini...";
+            btn.classList.add("opacity-50", "cursor-not-allowed");
+
+            const answers = {};
+            questions.forEach(q => {
+                if (q.type === 'mcq') {
+                    const selected = document.querySelector(`input[name="${q.id}"]:checked`);
+                    if (selected) answers[q.id] = selected.value;
+                } else {
+                    const textAnswer = document.querySelector(`textarea[name="${q.id}"]`);
+                    if (textAnswer) answers[q.id] = textAnswer.value;
+                }
+            });
+
+            const textInput = document.getElementById('struggles').value;
+
+            try {
+                const res = await fetch('/api/v1/assessment/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ answers, text_input: textInput })
+                });
+
+                if (res.ok) {
+                    const result = await res.json();
+                    localStorage.setItem('assessmentResult', JSON.stringify(result));
+                    window.location.href = 'roadmap.html';
+                } else {
+                    const err = await res.json();
+                    alert('Submission failed: ' + (err.detail || 'Unknown error'));
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+                    btn.classList.remove("opacity-50", "cursor-not-allowed");
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Submission failed. Check console for details.');
+                btn.disabled = false;
+                btn.innerText = originalText;
+                btn.classList.remove("opacity-50", "cursor-not-allowed");
+            }
+        });
+
+        loadQuestions();
+    </script>
+</body>
+
+</html>

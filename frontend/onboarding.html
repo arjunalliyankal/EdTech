@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Onboarding - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide-enter {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center">
+
+    <div class="w-full max-w-2xl px-6">
+        <!-- Progress Bar -->
+        <div class="mb-8">
+            <div class="flex justify-between text-sm text-gray-400 mb-2">
+                <span>Profile</span>
+                <span>Diagnostics</span>
+                <span>Analysis</span>
+            </div>
+            <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-blue w-1/4 transition-all duration-500" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="glass-panel p-8 rounded-2xl slide-enter" id="stepContainer">
+            <!-- Dynamic Content Here -->
+            <div id="step1">
+                <h2 class="text-2xl font-bold mb-2">Let's get to know you.</h2>
+                <p class="text-gray-400 mb-8">What are your primary career goals?</p>
+
+                <textarea id="careerGoals"
+                    class="w-full bg-brand-dark border border-white/10 rounded-xl p-4 text-white resize-none h-32 focus:border-accent-blue focus:outline-none"
+                    placeholder="e.g. Become a Senior Full Stack Developer..."></textarea>
+
+                <div class="mt-8">
+                    <p class="text-gray-400 mb-4">Preferred Learning Pace</p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <button onclick="selectPace('slow', this)"
+                            class="pace-btn bg-brand-dark border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all text-sm font-medium">Relaxed</button>
+                        <button onclick="selectPace('medium', this)"
+                            class="pace-btn bg-brand-dark border-accent-blue p-4 rounded-xl transition-all text-sm font-medium ring-1 ring-accent-blue">Steady</button>
+                        <button onclick="selectPace('fast', this)"
+                            class="pace-btn bg-brand-dark border border-white/10 p-4 rounded-xl hover:border-white/30 transition-all text-sm font-medium">Intensive</button>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-end">
+                    <button onclick="nextStep()"
+                        class="bg-accent-blue text-white px-8 py-3 rounded-full font-medium hover:bg-blue-600 transition-colors">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let selectedPace = 'medium';
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+
+        function selectPace(pace, btn) {
+            selectedPace = pace;
+            document.querySelectorAll('.pace-btn').forEach(b => {
+                b.classList.remove('border-accent-blue', 'ring-1', 'ring-accent-blue');
+                b.classList.add('border-white/10');
+            });
+            btn.classList.remove('border-white/10');
+            btn.classList.add('border-accent-blue', 'ring-1', 'ring-accent-blue');
+        }
+
+        async function nextStep() {
+            const goals = document.getElementById('careerGoals').value;
+            if (!goals) { alert('Please enter your career goals'); return; }
+
+            // Submit Step 1 Data
+            try {
+                const res = await fetch('/api/v1/profile/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        career_goals: goals,
+                        preferred_pace: selectedPace,
+                        current_skills: [],
+                        interests: []
+                    })
+                });
+
+                if (res.ok) {
+                    // Navigate to Diagnostics (Step 2)
+                    // For now, redirect to a placeholder or next page
+                    alert('Profile saved! Proceeding to diagnostics.');
+                    window.location.href = 'diagnostics.html';
+                } else {
+                    const err = await res.json();
+                    alert(err.detail);
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Error submitting profile');
+            }
+        }
+    </script>
+</body>
+
+</html>

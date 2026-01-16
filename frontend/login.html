@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Log in - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-accent-blue/20 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px]">
+    </div>
+
+    <div class="glass-panel p-8 rounded-2xl w-full max-w-md relative z-10 shadow-2xl">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-semibold tracking-tight">Welcome Back</h2>
+            <p class="text-gray-400 text-sm mt-2">Sign in to continue your learning journey</p>
+        </div>
+
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                <input type="email" id="email" required
+                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">Password</label>
+                <input type="password" id="password" required
+                    class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors">
+            </div>
+
+            <button type="submit"
+                class="w-full bg-accent-blue text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition-colors mt-2">
+                Log In
+            </button>
+        </form>
+
+        <div class="mt-6 text-center text-sm text-gray-500">
+            Don't have an account? <a href="signup.html" class="text-white hover:underline">Sign up</a>
+        </div>
+        <div class="mt-2 text-center text-sm text-gray-500">
+            <a href="index.html" class="text-white hover:underline">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const formData = new FormData();
+            formData.append('username', email);
+            formData.append('password', password);
+
+            try {
+                const res = await fetch('/api/v1/auth/login', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    localStorage.setItem('token', data.access_token);
+                    localStorage.setItem('role', data.role);
+                    alert('Login successful');
+                    // Redirect based on role
+                    if (data.role === 'mentor') window.location.href = 'mentor-dashboard.html';
+                    else window.location.href = 'student-landingpage.html';
+                } else {
+                    const err = await res.json();
+                    alert(err.detail);
+                }
+            } catch (error) {
+                console.error(error);
+                alert('An error occurred');
+            }
+        });
+    </script>
+</body>
+
+</html>

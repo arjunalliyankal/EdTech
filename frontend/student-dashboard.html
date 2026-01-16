@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e', 'success-green': '#32d74b' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-brand-black">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-semibold tracking-tight">EdTech AI</div>
+            <div class="flex gap-4 items-center">
+                <span class="text-sm text-gray-400">Student</span>
+                <button onclick="logout()" class="text-sm font-medium text-gray-300 hover:text-white">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-6 max-w-7xl mx-auto">
+        <header class="mb-10 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-bold mb-2">Welcome back.</h1>
+                <p class="text-gray-400">Here is your daily learning overview.</p>
+            </div>
+            <button onclick="window.location.href='roadmap.html'"
+                class="bg-white/5 border border-white/10 px-6 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors">
+                View Full Roadmap
+            </button>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="glass-panel p-6 rounded-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <p class="text-sm text-gray-400">Overall Progress</p>
+                    <div
+                        class="w-8 h-8 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold" id="progressValue">12%</p>
+                <div class="w-full bg-white/10 h-1.5 rounded-full mt-4 overflow-hidden">
+                    <div class="bg-accent-blue h-full w-[12%]" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <p class="text-sm text-gray-400">Skills Mastered</p>
+                    <div
+                        class="w-8 h-8 rounded-full bg-success-green/20 flex items-center justify-center text-success-green">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold">3</p>
+                <p class="text-xs text-gray-500 mt-4">Last: Data Structures Basics</p>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <p class="text-sm text-gray-400">Active Mentors</p>
+                    <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold">0</p>
+                <button class="text-xs text-accent-blue mt-4 hover:underline">Find a mentor &rarr;</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Learning Queue -->
+            <div class="lg:col-span-2">
+                <h3 class="text-xl font-semibold mb-6">Up Next</h3>
+                <div class="space-y-4">
+                    <!-- Mock Items -->
+                    <div
+                        class="glass-panel p-5 rounded-xl flex items-center justify-between group hover:bg-white/5 transition-colors cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">
+                                1</div>
+                            <div>
+                                <h4 class="font-medium" id="nextModuleTitle">Advanced Recursion</h4>
+                                <p class="text-sm text-gray-400">Algorithms • 45 mins left</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-gray-400 group-hover:bg-white group-hover:text-black transition-all">
+                            <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div
+                        class="glass-panel p-5 rounded-xl flex items-center justify-between group hover:bg-white/5 transition-colors cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gray-500/20 flex items-center justify-center text-gray-400 font-bold">
+                                2</div>
+                            <div>
+                                <h4 class="font-medium text-gray-400">Dynamic Programming Intro</h4>
+                                <p class="text-sm text-gray-500">Locked • Complete previous module</p>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mentor Recommendations -->
+            <div>
+                <h3 class="text-xl font-semibold mb-6">Recommended Mentors</h3>
+                <div class="space-y-4">
+                    <div class="glass-panel p-5 rounded-xl">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500"></div>
+                            <div>
+                                <p class="font-medium">Sarah Drasner</p>
+                                <p class="text-xs text-gray-400">Engineering Manager</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 rounded bg-white/5 text-[10px] text-gray-300">System Design</span>
+                            <span class="px-2 py-1 rounded bg-white/5 text-[10px] text-gray-300">Management</span>
+                        </div>
+                        <button
+                            class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 text-sm transition-colors border border-white/10">View
+                            Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+
+        async function loadProfileAndProgress() {
+            try {
+                // Fetch Profile
+                const profileRes = await fetch('/api/v1/profile/me', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                // Fetch Latest Assessment
+                const assessmentRes = await fetch('/api/v1/assessment/latest', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (assessmentRes.ok) {
+                    const assessment = await assessmentRes.json();
+                    // Mock progress calculation based on modules
+                    // In a real app, this would come from a 'progress' collection
+                    document.getElementById('progressValue').innerText = '15%';
+                    document.getElementById('progressBar').style.width = '15%';
+
+                    // Update 'Up Next' with first item of roadmap if available
+                    if (assessment.recommended_path && assessment.recommended_path.length > 0) {
+                        document.getElementById('nextModuleTitle').innerText = assessment.recommended_path[0];
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to load dashboard data", e);
+            }
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+
+        loadProfileAndProgress();
+    </script>
+</body>
+
+</html>

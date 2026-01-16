@@ -1,0 +1,8 @@
+SUCCESS: Roadmap structure is valid.
+{
+  "user_id": "test_user",
+  "score": 0,
+  "gap_analysis": "",
+  "recommended_path": [],
+  "timestamp": "2026-01-16T16:32:35.334025"
+}

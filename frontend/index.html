@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech AI - Personalized Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-black': '#0a0a0a',
+                        'brand-gray': '#1c1c1e',
+                        'accent-blue': '#2997ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #f5f5f7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, #2c2c2e 0%, #000000 100%);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen hero-gradient selection:bg-accent-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-semibold tracking-tight">EdTech AI</div>
+            <div class="flex gap-6 text-sm font-medium text-gray-400">
+                <a href="#" class="hover:text-white transition-colors">Students</a>
+                <a href="#" class="hover:text-white transition-colors">Mentors</a>
+                <a href="#" class="hover:text-white transition-colors">Pricing</a>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="window.location.href='login.html'"
+                    class="text-sm font-medium hover:text-white transition-colors text-gray-300">Log in</button>
+                <button onclick="window.location.href='signup.html'"
+                    class="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">Sign
+                    up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="pt-32 pb-16 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <div class="animate-fade-in">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-white/10 text-xs font-medium text-accent-blue mb-6 border border-white/5">
+                AI-Powered Learning
+            </span>
+        </div>
+
+        <h1
+            class="animate-fade-in delay-100 text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
+            Master Skills.<br>Not Just Courses.
+        </h1>
+
+        <p class="animate-fade-in delay-200 text-lg text-gray-400 max-w-2xl mb-10 leading-relaxed">
+            An adaptive learning platform that identifies your skill gaps and builds a personalized roadmap guided by
+            expert mentors.
+        </p>
+
+        <div class="animate-fade-in delay-300 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <button
+                class="bg-accent-blue text-white px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all transform hover:scale-105">
+                <a href="http://localhost:8000/signup.html">Your Roadmap</a>
+            </button>
+            <button class="glass-panel text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all">
+                <a href="http://localhost:8000/signup.html">Become a Mentor</a>
+            </button>
+        </div>
+
+        <!-- Dashboard Preview (Mockup) -->
+        <div class="mt-20 w-full max-w-5xl animate-fade-in delay-300">
+            <div class="glass-panel p-2 rounded-2xl border border-white/10 shadow-2xl shadow-accent-blue/10">
+                <div
+                    class="bg-brand-black rounded-xl aspect-[16/9] flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 to-transparent opacity-30"></div>
+                    <p class="text-gray-500 font-mono">Interactive Roadmap Interface Preview</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 mt-20 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-gray-500 text-sm">
+            <p>&copy; 2026 EdTech AI. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white">Privacy</a>
+                <a href="#" class="hover:text-white">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/js/app.js"></script>
+</body>
+
+</html>

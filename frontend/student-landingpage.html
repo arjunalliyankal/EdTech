@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-black': '#0a0a0a',
+                        'brand-gray': '#1c1c1e',
+                        'accent-blue': '#2997ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #f5f5f7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, #2c2c2e 0%, #000000 100%);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom scrollbar for cards container if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen hero-gradient selection:bg-accent-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-semibold tracking-tight cursor-pointer"
+                onclick="window.location.href='index.html'">EdTech AI</div>
+            <div class="flex gap-6 text-sm font-medium text-gray-400">
+                <a href="#" class="text-white">Explore</a>
+                <a href="#" class="hover:text-white transition-colors">My Learning</a>
+                <a href="#" class="hover:text-white transition-colors">Community</a>
+            </div>
+            <div class="flex gap-4 items-center">
+                <div
+                    class="w-8 h-8 rounded-full bg-gradient-to-tr from-accent-blue to-purple-500 flex items-center justify-center text-xs font-bold text-white">
+                    JS
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-16 px-6 max-w-7xl mx-auto">
+
+        <!-- Search Section -->
+        <div class="animate-fade-in text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Find Your Next Challenge</h1>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto"> what course do you want to learn? Search through hundreds of
+                AI-generated courses and expert-led mentorship programs.</p>
+
+            <div class="max-w-2xl mx-auto relative group">
+                <div
+                    class="absolute inset-0 bg-accent-blue blur-xl opacity-20 group-hover:opacity-30 transition-opacity rounded-full">
+                </div>
+                <div class="relative flex items-start glass-panel rounded-2xl px-6 py-4">
+                    <svg class="w-6 h-6 text-gray-400 mr-4 mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z">
+                        </path>
+                    </svg>
+                    <textarea id="topicInput" rows="2" placeholder="Tell us what you want to learn. E.g.,genai"
+                        class="bg-transparent border-none outline-none text-lg text-white w-full placeholder-gray-500 resize-none font-sans"></textarea>
+                    <button id="sendTopicBtn"
+                        class="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors ml-2 self-end mb-1">
+                        Send
+                    </button>
+                </div>
+            </div>
+            <script>
+                document.getElementById('sendTopicBtn').addEventListener('click', () => {
+                    const topic = document.getElementById('topicInput').value.trim();
+                    if (topic) {
+                        window.location.href = `diagnostics.html?topic=${encodeURIComponent(topic)}`;
+                    } else {
+                        alert("Please enter a topic to start.");
+                    }
+                });
+            </script>
+        </div>
+        </div>
+
+        <!-- Featured Mentors & Courses -->
+        <div class="animate-fade-in delay-200">
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Featured Mentor Courses</h2>
+                    <p class="text-gray-400 text-sm">Top-rated courses from industry experts</p>
+                </div>
+                <a href="#" class="text-accent-blue text-sm hover:underline">View all</a>
+            </div>
+
+            <!-- Course Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1 -->
+                <div
+                    class="glass-panel rounded-2xl overflow-hidden hover:border-white/30 transition-all group cursor-pointer">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <!-- Placeholder Image Gradient -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-900 to-black group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">
+                            Python
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 overflow-hidden">
+                                <!-- Mentor Avatar Placeholder -->
+                                <div class="w-full h-full bg-gradient-to-tr from-yellow-400 to-orange-500"></div>
+                            </div>
+                            <span class="text-sm text-gray-300">Sarah Drasner</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 group-hover:text-accent-blue transition-colors">Advanced
+                            Python Patterns</h3>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-2">Master decorators, context managers, and
+                            metaclasses to write cleaner, more efficient code.</p>
+
+                        <div class="flex justify-between items-center border-t border-white/5 pt-4">
+                            <div class="flex gap-4 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg> 6h 30m</span>
+                                <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                        </path>
+                                    </svg> 1.2k students</span>
+                            </div>
+                            <span class="font-bold text-white">$49</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="glass-panel rounded-2xl overflow-hidden hover:border-white/30 transition-all group cursor-pointer">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-purple-900 to-black group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">
+                            Machine Learning
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 overflow-hidden">
+                                <div class="w-full h-full bg-gradient-to-tr from-green-400 to-teal-500"></div>
+                            </div>
+                            <span class="text-sm text-gray-300">Andrew Ng</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 group-hover:text-accent-blue transition-colors">ML for
+                            Everyone</h3>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-2">A comprehensive introduction to machine
+                            learning concepts without the heavy math.</p>
+
+                        <div class="flex justify-between items-center border-t border-white/5 pt-4">
+                            <div class="flex gap-4 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg> 12h 15m</span>
+                                <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                        </path>
+                                    </svg> 8.5k students</span>
+                            </div>
+                            <span class="font-bold text-white">$89</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="glass-panel rounded-2xl overflow-hidden hover:border-white/30 transition-all group cursor-pointer">
+                    <div class="h-48 bg-gray-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-red-900 to-black group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs border border-white/10">
+                            React
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 overflow-hidden">
+                                <div class="w-full h-full bg-gradient-to-tr from-pink-400 to-rose-500"></div>
+                            </div>
+                            <span class="text-sm text-gray-300">Dan Abramov</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 group-hover:text-accent-blue transition-colors">React 19
+                            Masterclass</h3>
+                        <p class="text-gray-400 text-sm mb-6 line-clamp-2">Get ready for the latest features in React,
+                            including Server Components and Actions.</p>
+
+                        <div class="flex justify-between items-center border-t border-white/5 pt-4">
+                            <div class="flex gap-4 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg> 8h 45m</span>
+                                <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                        </path>
+                                    </svg> 3.4k students</span>
+                            </div>
+                            <span class="font-bold text-white">$65</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

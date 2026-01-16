@@ -1,0 +1,332 @@
+{
+    "users": [
+        {
+            "email": "persistent_user@example.com",
+            "role": "student",
+            "_id": "696a51f32087471cc4e9fbfc",
+            "hashed_password": "$2b$12$ctF.KAYy9zE4uH/mfPgsFuNtX.Kyd8kQ22JJSAXLw5eJ/wk6CaiB.",
+            "created_at": "2026-01-16 14:57:55.752614"
+        },
+        {
+            "email": "shyamlal@gmail.com",
+            "role": "student",
+            "_id": "696a52be2087471cc4e9fbfd",
+            "hashed_password": "$2b$12$i3hmsvbjQzmL/m9637bGgOegYipgYu/pSo68c9CzECN9SI.eMMTPu",
+            "created_at": "2026-01-16 15:01:18.204257"
+        },
+        {
+            "email": "12345@gmail.com",
+            "role": "student",
+            "_id": "696a641ac49cc0f2452dc2ee",
+            "hashed_password": "$2b$12$r/.I/s.QFvwoGNPT.AHIyezyAfseRJdPNI1uGNQvgYcU4/ghlrL3K",
+            "created_at": "2026-01-16 16:15:22.173513"
+        },
+        {
+            "email": "sabin@gmail.com",
+            "role": "mentor",
+            "_id": "696a64d0c49cc0f2452dc2f1",
+            "hashed_password": "$2b$12$QzFJLFhISvt.XbA7buviD.fEreQkEehyHWADiNmsmAP9W7D8Dehgy",
+            "created_at": "2026-01-16 16:18:24.587110"
+        },
+        {
+            "email": "farhan@gmail.com",
+            "role": "mentor",
+            "_id": "696a6b54ae7dffb0692f7734",
+            "hashed_password": "$2b$12$mnfCjozBvKhWPuLAXksRqOjLxABzIQwRXou9i.QXGtIsqPFwNhH8O",
+            "created_at": "2026-01-16 16:46:12.661695"
+        },
+        {
+            "email": "abc@gmail.com",
+            "role": "student",
+            "_id": "696a6e26ae7dffb0692f7735",
+            "hashed_password": "$2b$12$0.CBDB7i3jb9F4DW8lkOdu735hvuPugF6xUg1LW.hVVauPjxcLSum",
+            "created_at": "2026-01-16 16:58:14.785957"
+        },
+        {
+            "email": "arjun807887@gmail.com",
+            "role": "student",
+            "_id": "696a8b7dd36db46cb0f3d431",
+            "hashed_password": "$2b$12$VuZl4an7hU80gh/XoFJQPu/VrmfTvmOlDSI93V75/5HNYJBdhtjH.",
+            "created_at": "2026-01-16 19:03:25.679594"
+        },
+        {
+            "email": "test_1768593113@example.com",
+            "role": "student",
+            "_id": "696a96db9801344fe25a3dff",
+            "hashed_password": "$2b$12$.joDzdbaWsY496Ni6FaUUuCCJUklghQoOIQmXh5S5qhQ3BwICV7wO",
+            "created_at": "2026-01-16 19:51:55.461980"
+        },
+        {
+            "email": "test_1768593141@example.com",
+            "role": "student",
+            "_id": "696a96f76cf3d45ea713609f",
+            "hashed_password": "$2b$12$QYBt7neTCIP5DoqfVnMfLu3jrd4xLTRrma8blMfinZtHVvoIkXdce",
+            "created_at": "2026-01-16 19:52:23.699198"
+        },
+        {
+            "email": "test_1768593159@example.com",
+            "role": "student",
+            "_id": "696a9709ffdb5bb85b09f4d8",
+            "hashed_password": "$2b$12$zxVhrG8h8xq/SzdlpOFUmemzZ1f2.f0DmT6.E4eoPTBdRql/pl9Wm",
+            "created_at": "2026-01-16 19:52:41.545679"
+        },
+        {
+            "email": "test_1768593378@example.com",
+            "role": "student",
+            "_id": "696a97e4fd2195ab675e5161",
+            "hashed_password": "$2b$12$ca9a5Scgf7Zc57Xed.xaFOwY9oAELecAfaiykeB/lvm0PdxvtbAT.",
+            "created_at": "2026-01-16 19:56:20.719062"
+        },
+        {
+            "email": "test_1768593426@example.com",
+            "role": "student",
+            "_id": "696a9815fd2195ab675e5162",
+            "hashed_password": "$2b$12$uGY8eHonfPbOu5YJo/h8muFVO7K01L4UxYtU24tIFw3O7P9yYCQia",
+            "created_at": "2026-01-16 19:57:09.249612"
+        },
+        {
+            "email": "test_1768594195@example.com",
+            "role": "student",
+            "_id": "696a9b157c4d7ca6d58dcda3",
+            "hashed_password": "$2b$12$vXK0XnqYzoHNh9fwlbbqO.9Uj5B4oT7/SrWkwPc7D270G8KTrKQtC",
+            "created_at": "2026-01-16 20:09:57.969163"
+        }
+    ],
+    "assessment_results": [
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 80,
+            "gap_analysis": "Focus on General Fundamentals based on your input.",
+            "recommended_path": [
+                "Module 1: General Fundamentals"
+            ],
+            "timestamp": "2026-01-16 15:03:10.472026",
+            "_id": "696a532e2087471cc4e9fbfe"
+        },
+        {
+            "user_id": "696a641ac49cc0f2452dc2ee",
+            "score": 70,
+            "gap_analysis": "Analysis completed.",
+            "recommended_path": [
+                "Basics",
+                "Intermediate",
+                "Advanced"
+            ],
+            "timestamp": "2026-01-16 16:15:53.054595",
+            "_id": "696a6439c49cc0f2452dc2ef"
+        },
+        {
+            "user_id": "696a641ac49cc0f2452dc2ee",
+            "score": 70,
+            "gap_analysis": "Analysis completed.",
+            "recommended_path": [
+                "Basics",
+                "Intermediate",
+                "Advanced"
+            ],
+            "timestamp": "2026-01-16 16:16:24.369954",
+            "_id": "696a6458c49cc0f2452dc2f0"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 0,
+            "gap_analysis": "Roadmap generated from prompt.",
+            "recommended_path": [],
+            "timestamp": "2026-01-16 17:55:34.276373",
+            "_id": "696a7b962b6378ae032e5bc3"
+        },
+        {
+            "user_id": "696a8b7dd36db46cb0f3d431",
+            "score": 70,
+            "gap_analysis": "Great start! You have a good grasp of the basics, but delving deeper into algorithmic efficiency will help you write better code.",
+            "recommended_path": [
+                {
+                    "title": "Module 1: Core Concepts",
+                    "description": "Master lists, dictionaries, and basic complexity analysis.",
+                    "duration": "2 days"
+                },
+                {
+                    "title": "Module 2: Advanced Algorithms",
+                    "description": "Deep dive into sorting, searching, and recursion.",
+                    "duration": "1 week"
+                },
+                {
+                    "title": "Module 3: Real-world Applications",
+                    "description": "Apply your knowledge to build simple systems.",
+                    "duration": "5 days"
+                }
+            ],
+            "timestamp": "2026-01-16 19:13:58.962222",
+            "_id": "696a8df68e2f8cf0043df79a"
+        },
+        {
+            "user_id": "696a9b157c4d7ca6d58dcda3",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": []
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": []
+                },
+                {
+                    "title": "Advanced",
+                    "description": "Explore complex topics.",
+                    "duration": "2 weeks",
+                    "resources": []
+                }
+            ],
+            "timestamp": "2026-01-16 20:10:02.669516",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": []
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": []
+                },
+                {
+                    "title": "Advanced",
+                    "description": "Explore complex topics.",
+                    "duration": "2 weeks",
+                    "resources": []
+                }
+            ],
+            "_id": "696a9b1a7c4d7ca6d58dcda4"
+        },
+        {
+            "user_id": "696a8b7dd36db46cb0f3d431",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": []
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": []
+                },
+                {
+                    "title": "Advanced",
+                    "description": "Explore complex topics.",
+                    "duration": "2 weeks",
+                    "resources": []
+                }
+            ],
+            "timestamp": "2026-01-16 20:13:10.230104",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": []
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": []
+                },
+                {
+                    "title": "Advanced",
+                    "description": "Explore complex topics.",
+                    "duration": "2 weeks",
+                    "resources": []
+                }
+            ],
+            "_id": "696a9bd67c4d7ca6d58dcda5"
+        },
+        {
+            "user_id": "696a8b7dd36db46cb0f3d431",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 20:38:51.232643",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696aa1dbc779e4e132e18865"
+        }
+    ]
+}
