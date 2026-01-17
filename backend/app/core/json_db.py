@@ -28,6 +28,45 @@ class JsonCollection:
                 return item
         return None
 
+    def find(self, filter: Dict = None, sort: Optional[List] = None):
+        filter = filter or {}
+        data = self._get_data()
+        filtered_data = []
+        for item in data:
+            match = True
+            for k, v in filter.items():
+                if item.get(k) != v:
+                    match = False
+                    break
+            if match:
+                filtered_data.append(item)
+        
+        # Simple Async Iterator wrapper
+        class AsyncCursor:
+            def __init__(self, items):
+                self.items = items
+
+            def __aiter__(self):
+                self.iter = iter(self.items)
+                return self
+
+            async def __anext__(self):
+                try:
+                    return next(self.iter)
+                except StopIteration:
+                    raise StopAsyncIteration
+
+            def sort(self, key_or_list, direction=None):
+                # Rudimentary sort support to avoid crashing
+                return self
+                
+            async def to_list(self, length=None):
+                if length:
+                    return self.items[:length]
+                return self.items
+
+        return AsyncCursor(filtered_data)
+
     async def insert_one(self, document: Dict) -> Any:
         data = self._get_data()
         if "_id" not in document:

@@ -38,7 +38,7 @@
             <div class="text-xl font-semibold tracking-tight">EdTech AI <span
                     class="text-accent-purple text-sm ml-2">For Mentors</span></div>
             <div class="flex gap-4 items-center">
-                <button
+                <button onclick="toggleUploadModal()"
                     class="bg-accent-purple/10 text-accent-purple px-4 py-1.5 rounded-full text-sm font-medium border border-accent-purple/20 hover:bg-accent-purple/20 transition-colors">+
                     Create Content</button>
                 <button onclick="logout()"
@@ -79,22 +79,10 @@
                                     <th class="p-4 text-sm font-medium text-gray-400">Status</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-white/5">
-                                <tr class="hover:bg-white/5 transition-colors">
-                                    <td class="p-4 font-medium">Full Stack Python Mastery</td>
-                                    <td class="p-4 text-gray-400">89</td>
-                                    <td class="p-4 text-yellow-400">★ 4.9</td>
-                                    <td class="p-4"><span
-                                            class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs">Active</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-white/5 transition-colors">
-                                    <td class="p-4 font-medium">Advanced System Design</td>
-                                    <td class="p-4 text-gray-400">53</td>
-                                    <td class="p-4 text-yellow-400">★ 4.8</td>
-                                    <td class="p-4"><span
-                                            class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs">Active</span>
-                                    </td>
+                            <tbody class="divide-y divide-white/5" id="coursesTableBody">
+                                <!-- Dynamic rows injected here -->
+                                <tr>
+                                    <td colspan="4" class="p-8 text-center text-gray-500">Loading courses...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -134,6 +122,40 @@
         </div>
     </main>
 
+    <!-- Upload Modal -->
+    <div id="uploadModal"
+        class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center backdrop-blur-sm">
+        <div class="glass-panel p-8 rounded-2xl w-full max-w-md relative">
+            <button onclick="toggleUploadModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold mb-2">Create New Course</h3>
+            <p class="text-xs text-gray-500 mb-6">Upload a PDF document and our AI will convert it into a structured
+                course.</p>
+
+            <div class="space-y-4">
+                <div
+                    class="border-2 border-dashed border-white/20 rounded-xl p-8 text-center hover:bg-white/5 transition-colors cursor-pointer relative">
+                    <input type="file" id="coursePdf" accept=".pdf"
+                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="updateFileName(this)">
+                    <div id="uploadPlaceholder">
+                        <span class="text-3xl mb-2 block">📄</span>
+                        <span class="text-sm text-gray-400">Click to upload PDF</span>
+                    </div>
+                    <div id="fileInfo" class="hidden">
+                        <span class="text-3xl mb-2 block text-green-400">✓</span>
+                        <span class="text-sm text-white font-medium" id="fileNameDisplay">filename.pdf</span>
+                    </div>
+                </div>
+
+                <button onclick="uploadCourse()" id="uploadBtn"
+                    class="w-full bg-accent-purple text-white py-3 rounded-xl font-medium hover:bg-accent-purple/90 transition-all flex justify-center items-center gap-2">
+                    Generate Course
+                </button>
+                <p id="uploadStatus" class="text-center text-xs text-red-400 h-4"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
         const token = localStorage.getItem('token');
         if (!token) window.location.href = 'login.html';
@@ -142,6 +164,105 @@
             localStorage.clear();
             window.location.href = 'index.html';
         }
+
+        function toggleUploadModal() {
+            const modal = document.getElementById('uploadModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function updateFileName(input) {
+            const file = input.files[0];
+            if (file) {
+                document.getElementById('uploadPlaceholder').classList.add('hidden');
+                document.getElementById('fileInfo').classList.remove('hidden');
+                document.getElementById('fileNameDisplay').textContent = file.name;
+            }
+        }
+
+        async function uploadCourse() {
+            const fileInput = document.getElementById('coursePdf');
+            const file = fileInput.files[0];
+            const btn = document.getElementById('uploadBtn');
+            const status = document.getElementById('uploadStatus');
+
+            if (!file) {
+                status.textContent = "Please select a PDF file first.";
+                return;
+            }
+
+            status.textContent = "";
+            btn.innerHTML = '<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div> Processing...';
+            btn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const res = await fetch('/api/v1/courses/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    status.classList.remove('text-red-400');
+                    status.classList.add('text-green-400');
+                    status.textContent = "Course generated successfully!";
+                    setTimeout(() => {
+                        window.location.reload(); // Reload to show new course
+                    }, 1500);
+                } else {
+                    const err = await res.json();
+                    throw new Error(err.detail || 'Upload failed');
+                }
+            } catch (e) {
+                status.textContent = e.message;
+                btn.innerHTML = "Generate Course";
+                btn.disabled = false;
+            }
+        }
+        async function fetchCourses() {
+            const tableBody = document.getElementById('coursesTableBody');
+
+            try {
+                const res = await fetch('/api/v1/courses/my-courses', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (res.ok) {
+                    const courses = await res.json();
+
+                    if (courses.length === 0) {
+                        tableBody.innerHTML = `
+                            <tr>
+                                <td colspan="4" class="p-8 text-center text-gray-500">
+                                    No courses found. Create your first course!
+                                </td>
+                            </tr>
+                        `;
+                        return;
+                    }
+
+                    tableBody.innerHTML = courses.map(c => `
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-4 font-medium">${c.title}</td>
+                            <td class="p-4 text-gray-400">0</td> <!-- Placeholder for generic stats -->
+                            <td class="p-4 text-yellow-400">New</td>
+                            <td class="p-4"><span class="px-2 py-1 rounded ${c.status === 'active' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'} text-xs uppercase">${c.status || 'draft'}</span></td>
+                        </tr>
+                    `).join('');
+                }
+            } catch (e) {
+                console.error("Failed to fetch courses", e);
+                tableBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-red-400">Failed to load courses</td></tr>`;
+            }
+        }
+
+        // Initial Load
+        fetchCourses();
     </script>
 </body>
 

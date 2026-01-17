@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML for Everyone - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e', 'success-green': '#32d74b' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-brand-black">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="student-dashboard.html" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </a>
+                <div class="text-xl font-semibold tracking-tight">Machine Learning for Everyone</div>
+            </div>
+            <div class="flex gap-4 items-center">
+                <span class="text-sm text-gray-400">Course</span>
+                <button onclick="window.location.href='student-dashboard.html'"
+                    class="text-sm font-medium text-gray-300 hover:text-white">Exit</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-6 max-w-4xl mx-auto">
+
+        <!-- Course Content -->
+        <section class="mb-12">
+            <div class="glass-panel p-8 rounded-2xl mb-8">
+                <span
+                    class="inline-block px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs font-medium mb-4">Module
+                    1</span>
+                <h1 class="text-4xl font-bold mb-6">Introduction to AI & ML</h1>
+
+                <div class="prose prose-invert max-w-none text-gray-300 space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        Machine Learning (ML) is the science of getting computers to act without being explicitly
+                        programmed. In the past decade, machine learning has given us self-driving cars, practical
+                        speech recognition, effective web search, and a vastly improved understanding of the human
+                        genome.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">1. Supervised Learning</h3>
+                    <p>
+                        In supervised learning, the computer is presented with example inputs and their desired outputs,
+                        given by a "teacher", and the goal is to learn a general rule that maps inputs to outputs.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Classification:</strong> The output is a category (e.g., "spam" or "not spam").</li>
+                        <li><strong>Regression:</strong> The output is a continuous value (e.g., predicting house
+                            prices).</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">2. Unsupervised Learning</h3>
+                    <p>
+                        In unsupervised learning, no labels are given to the learning algorithm, leaving it on its own
+                        to find structure in its input. Unsupervised learning is very important for data analysis and
+                        identifying patterns.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">3. Neural Networks</h3>
+                    <p>
+                        Neural networks are a set of algorithms, modeled loosely after the human brain, that are
+                        designed to recognize patterns. They interpret sensory data through a kind of machine
+                        perception, labeling or clustering raw input.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Test Button -->
+        <div class="text-center mb-12">
+            <button onclick="startAssessment()" id="startBtn"
+                class="bg-green-500 text-black font-bold py-3 px-8 rounded-full hover:bg-green-400 transition-colors transform hover:scale-105 shadow-lg shadow-green-500/20">
+                Take Test
+            </button>
+        </div>
+
+        <!-- Assessment Section -->
+        <section id="assessment" class="hidden space-y-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-sm">?</span>
+                Module Assessment
+            </h2>
+
+            <!-- MCQ 1 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-green-500">
+                <p class="text-lg font-medium mb-4">1. Which type of learning involves labeled data?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="supervised"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Supervised Learning</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="unsupervised"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Unsupervised Learning</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="reinforcement"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Reinforcement Learning</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-green-500">
+                <p class="text-lg font-medium mb-4">2. Predicting house prices is an example of which task?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="classification"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Classification</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="regression"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Regression</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="clustering"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Clustering</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-green-500">
+                <p class="text-lg font-medium mb-4">3. Unsupervised learning is primarily used for:</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="predictions"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Making future predictions based on past labels</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="structure"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Finding structure/patterns in data</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="rules"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Following explicit programming rules</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-green-500">
+                <p class="text-lg font-medium mb-4">4. Neural networks are modeled loosely after:</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="trees"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Binary Trees</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="brain"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>The Human Brain</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="dna"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>DNA Structure</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-green-500">
+                <p class="text-lg font-medium mb-4">5. What is "Classification" in ML?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="category"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Predicting a category</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="value"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Predicting a specific continuous number</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="group"
+                            class="w-4 h-4 text-green-400 bg-transparent border-gray-600 focus:ring-green-400">
+                        <span>Grouping similar data without labels</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Descriptive Question -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-purple-500">
+                <p class="text-lg font-medium mb-4">6. Why might a company choose to use Unsupervised Learning on their
+                    customer data?</p>
+                <textarea id="descAnswer" rows="4"
+                    class="w-full bg-black/30 border border-white/10 rounded-lg p-4 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
+                    placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <button onclick="submitAssessment()"
+                class="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-colors transform hover:scale-[1.01] active:scale-[0.99]">
+                Submit Assessment
+            </button>
+
+            <!-- Result Display -->
+            <div id="resultPanel" class="hidden glass-panel p-8 rounded-2xl text-center border-green-500 border-2">
+                <h3 class="text-3xl font-bold mb-2">Assessment Complete!</h3>
+                <p class="text-gray-400 mb-6">Here is how you performed:</p>
+                <div class="text-6xl font-bold text-green-400 mb-4" id="scoreDisplay">0%</div>
+                <p class="text-sm text-gray-500" id="feedbackMsg">Keep practicing!</p>
+                <button onclick="window.location.href='student-dashboard.html'"
+                    class="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-sm transition-colors">Return
+                    to Dashboard</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        function startAssessment() {
+            document.getElementById('assessment').classList.remove('hidden');
+            document.getElementById('startBtn').classList.add('hidden');
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitAssessment() {
+            let score = 0;
+            const answers = {
+                q1: 'supervised',
+                q2: 'regression',
+                q3: 'structure',
+                q4: 'brain',
+                q5: 'category'
+            };
+
+            // Calculate MCQ Score
+            for (let q in answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            // Check Descriptive (Simple validation: not empty)
+            const desc = document.getElementById('descAnswer').value.trim();
+            if (desc.length > 20) {
+                score++; // Give point for a decent length answer
+            }
+
+            const totalQuestions = 6;
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+            // Show Result
+            document.getElementById('assessment').lastElementChild.scrollIntoView({ behavior: 'smooth' });
+
+            document.querySelector('button[onclick="submitAssessment()"]').classList.add('hidden');
+
+            const resultPanel = document.getElementById('resultPanel');
+            resultPanel.classList.remove('hidden');
+
+            document.getElementById('scoreDisplay').innerText = `${percentage}%`;
+
+            if (percentage >= 80) {
+                document.getElementById('feedbackMsg').innerText = "Outstanding! You have a great grasp of ML basics.";
+                document.getElementById('feedbackMsg').classList.add('text-success-green');
+            } else if (percentage >= 50) {
+                document.getElementById('feedbackMsg').innerText = "Good job! You're on the right track.";
+            }
+        }
+    </script>
+</body>
+
+</html>

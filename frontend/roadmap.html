@@ -76,7 +76,7 @@
         </div>
 
         <div class="mt-12 text-center">
-            <button
+            <button onclick="window.location.href='learning.html'"
                 class="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors">Start
                 Learning</button>
         </div>
@@ -84,6 +84,10 @@
 
     <script>
         async function loadRoadmap() {
+            const container = document.getElementById('roadmapContainer');
+            const gapAnalysis = document.getElementById('gapAnalysis');
+            const score = document.getElementById('score');
+
             try {
                 const token = localStorage.getItem('token');
                 if (!token) {
@@ -91,16 +95,37 @@
                     return;
                 }
 
-                const res = await fetch('/api/v1/assessment/latest', {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
+                const urlParams = new URLSearchParams(window.location.search);
+                const topic = urlParams.get('topic');
+
+                let res;
+                // If we have a topic, we generate a fresh interest-based roadmap
+                if (topic) {
+                    // Show Loading State
+                    gapAnalysis.innerText = "Designing your course...";
+                    container.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-20 animate-pulse">
+                            <div class="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-4"></div>
+                            <p class="text-gray-400">Our AI is generating your personalized roadmap for ${topic}. This usually takes 5-10 seconds...</p>
+                        </div>
+                    `;
+
+                    res = await fetch(`/api/v1/assessment/generate-from-topic?topic=${encodeURIComponent(topic)}`, {
+                        method: 'POST',
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                } else {
+                    // Otherwise load the latest assessment result (e.g. after diagnostics.html)
+                    res = await fetch('/api/v1/assessment/latest', {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                }
 
                 if (res.ok) {
                     const result = await res.json();
-                    document.getElementById('gapAnalysis').innerText = result.gap_analysis;
-                    document.getElementById('score').innerText = result.score + '%';
+                    gapAnalysis.innerText = result.gap_analysis;
+                    score.innerText = result.score + '%';
 
-                    const container = document.getElementById('roadmapContainer');
                     // Clear existing (except line)
                     const modulesHtml = result.recommended_path.map((module, idx) => `
                         <div class="relative z-10 flex gap-6 group">
@@ -117,9 +142,16 @@
                                 </div>
                                 ${module.resources && module.resources.length > 0 ? `
                                 <div class="mt-3 pt-3 border-t border-white/5">
-                                    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Resources</p>
+                                    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Recommended Reading</p>
                                     <div class="flex flex-wrap gap-2">
-                                        ${module.resources.map(r => `<span class="text-xs bg-white/5 hover:bg-white/10 px-2 py-1 rounded transition-colors text-gray-300">${r}</span>`).join('')}
+                                        ${module.resources.map(r => `
+                                            <a href="${r.url}" target="_blank" class="text-xs bg-white/5 hover:bg-accent-blue/10 hover:text-accent-blue px-2 py-1 rounded transition-colors text-gray-300 border border-white/5 flex items-center gap-1.5 group/link">
+                                                <span>${r.title}</span>
+                                                <svg class="w-3.5 h-3.5 opacity-50 group-hover/link:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                        `).join('')}
                                     </div>
                                 </div>
                                 ` : ''}
@@ -143,11 +175,13 @@
                 } else {
                     const err = await res.json();
                     alert(err.detail || 'Failed to load roadmap');
-                    window.location.href = 'diagnostics.html';
+                    if (!topic) window.location.href = 'student-landingpage.html';
+                    else gapAnalysis.innerText = "Failed to generate roadmap.";
                 }
             } catch (e) {
                 console.error(e);
                 alert('Error loading roadmap');
+                gapAnalysis.innerText = "Error occurred.";
             }
         }
 

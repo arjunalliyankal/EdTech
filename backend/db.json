@@ -90,6 +90,41 @@
             "_id": "696a9b157c4d7ca6d58dcda3",
             "hashed_password": "$2b$12$vXK0XnqYzoHNh9fwlbbqO.9Uj5B4oT7/SrWkwPc7D270G8KTrKQtC",
             "created_at": "2026-01-16 20:09:57.969163"
+        },
+        {
+            "email": "arjun@example.com",
+            "role": "student",
+            "_id": "696abb52f752f26f5d6ab2c9",
+            "hashed_password": "$2b$12$wzL5yJmcbr5c/Y0bXU9SGuH/wDzSbe.PRoI0S1GZCvWkaHM0YOfB6",
+            "created_at": "2026-01-16 22:27:30.380713"
+        },
+        {
+            "email": "testuser@example.com",
+            "role": "student",
+            "_id": "696abdf5c4757ca1f5f634e2",
+            "hashed_password": "$2b$12$p5WGm194b6sumPU/8fxoI.tHaSYE//IdeH0IDwYBflyO3DNRHRXym",
+            "created_at": "2026-01-16 22:38:45.642968"
+        },
+        {
+            "email": "test@example.com",
+            "role": "student",
+            "_id": "696ac260244c7acc17db03e4",
+            "hashed_password": "$2b$12$EZC1oxp3Jr6H1Aj6RiHqF.NBSJdOFbpoT40Ld1OtzCmoa6FsuCThS",
+            "created_at": "2026-01-16 22:57:36.237494"
+        },
+        {
+            "email": "syam@gmail.com",
+            "role": "student",
+            "_id": "696af8e633480ecfce94fccd",
+            "hashed_password": "$2b$12$LS2bX0.RlXIkchBEzUXpE.FK8B7fRrcRThPGFbB2bQsZIyE.H5tLy",
+            "created_at": "2026-01-17 02:50:14.173155"
+        },
+        {
+            "email": "fn@gmail.com",
+            "role": "mentor",
+            "_id": "696afb5833480ecfce94fccf",
+            "hashed_password": "$2b$12$cMiVVmi99CYWxnZhfA91TubZfNdKn0vFh97qbgbdkLmTBe.d5DEo.",
+            "created_at": "2026-01-17 03:00:40.104414"
         }
     ],
     "assessment_results": [
@@ -101,7 +136,7 @@
                 "Module 1: General Fundamentals"
             ],
             "timestamp": "2026-01-16 15:03:10.472026",
-            "_id": "696a532e2087471cc4e9fbfe"
+            "id": "696a532e2087471cc4e9fbfe"
         },
         {
             "user_id": "696a641ac49cc0f2452dc2ee",
@@ -157,7 +192,7 @@
                 }
             ],
             "timestamp": "2026-01-16 19:13:58.962222",
-            "_id": "696a8df68e2f8cf0043df79a"
+            "id": "696a8df68e2f8cf0043df79a"
         },
         {
             "user_id": "696a9b157c4d7ca6d58dcda3",
@@ -327,6 +362,1954 @@
                 }
             ],
             "_id": "696aa1dbc779e4e132e18865"
+        },
+        {
+            "user_id": "696a8b7dd36db46cb0f3d431",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:15:18.636760",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ab876f92c84e21b057b63"
+        },
+        {
+            "user_id": "696a8b7dd36db46cb0f3d431",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:19:15.363014",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ab963f92c84e21b057b64"
+        },
+        {
+            "user_id": "696abb52f752f26f5d6ab2c9",
+            "score": 100,
+            "gap_analysis": "Roadmap for Machine Learning for Finance.",
+            "recommended_path": [],
+            "timestamp": "2026-01-16 22:29:38.558435",
+            "full_roadmap": [],
+            "_id": "696abbd2f752f26f5d6ab2ca"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:40:11.193772",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696abe4bc4757ca1f5f634e3"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Quantum Computing",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:42:59.156661",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Quantum Computing",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696abef3c4757ca1f5f634e4"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Quantum Computing",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:46:13.149106",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Quantum Computing",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696abfb5c4757ca1f5f634e5"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to computer science",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:46:36.091785",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to computer science",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696abfccc4757ca1f5f634e6"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to computer science",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:47:05.175230",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to computer science",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696abfe9c4757ca1f5f634e7"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:51:16.227472",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac0e4c4757ca1f5f634e8"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:52:45.259083",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac13dc4757ca1f5f634e9"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:55:13.276248",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac1d1244c7acc17db03e2"
+        },
+        {
+            "user_id": "696a52be2087471cc4e9fbfd",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:56:37.349568",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac225244c7acc17db03e3"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 22:58:22.407349",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "id": "696ac28e244c7acc17db03e5"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:06:10.804355",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac462d735f46330faef17"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:08:49.475462",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac501d735f46330faef18"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Rust Programming",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Rust Programming Overview",
+                            "url": "https://en.wikipedia.org/wiki/Rust_Programming"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:09:30.935359",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Rust Programming",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Rust Programming Overview",
+                            "url": "https://en.wikipedia.org/wiki/Rust_Programming"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac52ad735f46330faef19"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Solana Development",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Development Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana_Development"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:17:39.101411",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Solana Development",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Development Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana_Development"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac713698da18781aae399"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Solana",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:19:00.743629",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Solana",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac764698da18781aae39a"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Artificial Intelligence",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Artificial Intelligence Overview",
+                            "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:20:40.337948",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Artificial Intelligence",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Artificial Intelligence Overview",
+                            "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac7c8698da18781aae39b"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Solana Development",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Development Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana_Development"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:22:35.464718",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Solana Development",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Development Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana_Development"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac83b698da18781aae39c"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Web Development",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Web Development Overview",
+                            "url": "https://en.wikipedia.org/wiki/Web_Development"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:24:17.292183",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Web Development",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Web Development Overview",
+                            "url": "https://en.wikipedia.org/wiki/Web_Development"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac8a1698da18781aae39d"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Solana",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:26:36.298333",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Solana",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac92c698da18781aae39e"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Python",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Python Overview",
+                            "url": "https://en.wikipedia.org/wiki/Python"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:28:47.287904",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Python",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Python Overview",
+                            "url": "https://en.wikipedia.org/wiki/Python"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696ac9af698da18781aae39f"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Kubernetes Basics",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Kubernetes Basics Overview",
+                            "url": "https://en.wikipedia.org/wiki/Kubernetes_Basics"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:32:12.684872",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Kubernetes Basics",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Kubernetes Basics Overview",
+                            "url": "https://en.wikipedia.org/wiki/Kubernetes_Basics"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696aca7c178ec61760650194"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:35:22.568970",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696acb3a178ec61760650195"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Kubernetes Basics",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Kubernetes Basics Overview",
+                            "url": "https://en.wikipedia.org/wiki/Kubernetes_Basics"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:35:52.137023",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Kubernetes Basics",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Kubernetes Basics Overview",
+                            "url": "https://en.wikipedia.org/wiki/Kubernetes_Basics"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696acb58178ec61760650196"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:37:50.001398",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696acbce178ec61760650197"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Kubernetes Basics",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Kubernetes Basics Overview",
+                            "url": "https://en.wikipedia.org/wiki/Kubernetes_Basics"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:38:14.346466",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Kubernetes Basics",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Kubernetes Basics Overview",
+                            "url": "https://en.wikipedia.org/wiki/Kubernetes_Basics"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696acbe6178ec61760650198"
+        },
+        {
+            "user_id": "696ac260244c7acc17db03e4",
+            "score": 0,
+            "gap_analysis": "Interest-based learning path",
+            "recommended_path": [
+                {
+                    "title": "Introduction to Solana",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-16 23:54:29.635180",
+            "full_roadmap": [
+                {
+                    "title": "Introduction to Solana",
+                    "description": "Foundational concepts and overview.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Solana Overview",
+                            "url": "https://en.wikipedia.org/wiki/Solana"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "History & Context",
+                            "description": "How this field evolved."
+                        },
+                        {
+                            "title": "Key Terminology",
+                            "description": "Essential vocabulary."
+                        }
+                    ]
+                }
+            ],
+            "_id": "696acfb51f970245ae32d414"
+        },
+        {
+            "user_id": "696af8e633480ecfce94fccd",
+            "score": 50,
+            "gap_analysis": "We couldn't generate a detailed analysis at this time. Here represents a general path.",
+            "recommended_path": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "timestamp": "2026-01-17 02:56:13.379735",
+            "full_roadmap": [
+                {
+                    "title": "Foundations",
+                    "description": "Review core concepts.",
+                    "duration": "1 week",
+                    "resources": [
+                        {
+                            "title": "Official Documentation",
+                            "url": "https://docs.python.org/3/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Basics",
+                            "description": "Core syntax and rules."
+                        },
+                        {
+                            "title": "Setup",
+                            "description": "Environment configuration."
+                        }
+                    ]
+                },
+                {
+                    "title": "Practice",
+                    "description": "Build simple projects.",
+                    "duration": "2 weeks",
+                    "resources": [
+                        {
+                            "title": "Github Learning Lab",
+                            "url": "https://lab.github.com/"
+                        }
+                    ],
+                    "subtopics": [
+                        {
+                            "title": "Project 1",
+                            "description": "Small CLI tool."
+                        },
+                        {
+                            "title": "Project 2",
+                            "description": "Basic script."
+                        }
+                    ]
+                }
+            ],
+            "id": "696afa4d33480ecfce94fcce"
+        }
+    ],
+    "courses": [
+        {
+            "title": "Untitled Course",
+            "description": "",
+            "modules": [],
+            "instructor_id": "696a64d0c49cc0f2452dc2f1",
+            "status": "draft",
+            "source_file": "Nexora Tech Fest 2026.pdf",
+            "id": "696ada84479060d1de952419"
+        },
+        {
+            "title": "Untitled Course",
+            "description": "",
+            "modules": [],
+            "instructor_id": "696a64d0c49cc0f2452dc2f1",
+            "status": "draft",
+            "source_file": "Nexora Tech Fest 2026.pdf",
+            "id": "696adb76479060d1de95241a"
+        },
+        {
+            "title": "Untitled Course",
+            "description": "",
+            "modules": [],
+            "instructor_id": "696a64d0c49cc0f2452dc2f1",
+            "status": "draft",
+            "source_file": "Nexora Tech Fest.pdf",
+            "id": "696adb86479060d1de95241b"
+        },
+        {
+            "title": "Untitled Course",
+            "description": "",
+            "modules": [],
+            "instructor_id": "696a64d0c49cc0f2452dc2f1",
+            "status": "draft",
+            "source_file": "Nexora Tech Fest.pdf",
+            "_id": "696adcc23d84ac77a4fe7a27"
+        },
+        {
+            "title": "Untitled Course",
+            "description": "",
+            "modules": [],
+            "instructor_id": "696a64d0c49cc0f2452dc2f1",
+            "status": "draft",
+            "source_file": "Nexora Tech Fest 2026 - Nature & Tech.pdf",
+            "_id": "696adcd13d84ac77a4fe7a28"
+        },
+        {
+            "title": "Untitled Course",
+            "description": "",
+            "modules": [],
+            "instructor_id": "696afb5833480ecfce94fccf",
+            "status": "draft",
+            "source_file": "Nexora Tech Fest.pdf",
+            "_id": "696afb8f33480ecfce94fcd0"
         }
     ]
 }

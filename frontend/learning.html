@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Center - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .content-area::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .reading-section {
+            display: none;
+        }
+
+        .reading-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-brand-black flex overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-80 h-screen glass-panel border-r border-white/10 flex flex-col relative z-20">
+        <div class="p-6 border-b border-white/10">
+            <h1 class="text-xl font-bold">Learning Path</h1>
+            <p class="text-xs text-gray-500 mt-1">Select a module to start reading</p>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 space-y-2 content-area" id="moduleNav">
+            <!-- Nav items injected here -->
+            <div class="animate-pulse space-y-3 p-4">
+                <div class="h-10 bg-white/5 rounded-xl w-full"></div>
+                <div class="h-10 bg-white/5 rounded-xl w-full"></div>
+                <div class="h-10 bg-white/5 rounded-xl w-full"></div>
+            </div>
+        </div>
+        <div class="p-6 border-t border-white/10">
+            <button onclick="window.location.href='roadmap.html'"
+                class="text-sm text-gray-400 hover:text-white flex items-center gap-2">
+                ← Back to Roadmap
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main class="flex-1 h-screen overflow-y-auto content-area relative z-10" id="contentView">
+        <div class="max-w-3xl mx-auto py-20 px-10">
+            <div id="loader" class="flex flex-col items-center justify-center py-40">
+                <div class="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-4">
+                </div>
+                <p class="text-gray-400">Scraping web content and preparing your reading material...</p>
+            </div>
+
+            <div id="materialContainer" class="hidden">
+                <!-- Content injected here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+
+        let modules = [];
+
+        async function fetchMaterial() {
+            try {
+                const res = await fetch('/api/v1/assessment/learning-content', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!res.ok) {
+                    throw new Error(`Failed to load content: ${res.statusText}`);
+                }
+
+                const data = await res.json();
+                modules = data.modules || []; // Ensure array
+                renderApp();
+            } catch (e) {
+                console.error(e);
+                document.getElementById('loader').innerHTML = '<p class="text-red-500">Failed to load learning material. Please try again.</p>';
+            }
+        }
+
+        function renderApp() {
+            const nav = document.getElementById('moduleNav');
+            const container = document.getElementById('materialContainer');
+            const loader = document.getElementById('loader');
+
+            loader.classList.add('hidden');
+            container.classList.remove('hidden');
+
+            nav.innerHTML = modules.map((m, idx) => `
+                <button onclick="showModule(${idx})" class="w-full text-left p-4 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/10 group flex flex-col gap-1 nav-btn" id="nav-${idx}">
+                    <span class="text-xs text-gray-500">Module ${idx + 1}</span>
+                    <span class="text-sm font-medium text-gray-300 group-hover:text-white">${m.title}</span>
+                </button>
+            `).join('');
+
+            container.innerHTML = modules.map((m, idx) => `
+                <article class="reading-section space-y-8" id="module-${idx}">
+                    <header class="space-y-4">
+                        <span class="text-accent-blue font-semibold tracking-wider text-sm">MODULE ${idx + 1}</span>
+                        <h2 class="text-4xl font-bold">${m.title}</h2>
+                        <p class="text-xl text-gray-400 italic">"${m.description}"</p>
+                    </header>
+                    
+                    <div class="prose prose-invert max-w-none space-y-6">
+                        ${m.readings && m.readings.length > 0 ? m.readings.map(r => `
+                            <div class="bg-brand-dark/50 p-8 rounded-3xl border border-white/5 space-y-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-xl font-semibold text-accent-blue">Overview: ${r.title}</h3>
+                                    <a href="${r.url}" target="_blank" class="text-xs text-gray-500 hover:text-white underline">Source Page</a>
+                                </div>
+                                <div class="text-gray-300 leading-relaxed space-y-4 text-lg">
+                                    ${r.content.split('\n').map(p => p.trim() ? `<p>${p}</p>` : '').join('')}
+                                </div>
+                            </div>
+                        `).join('') : `
+                            <div class="p-8 rounded-3xl border border-dashed border-white/10 text-center text-gray-500">
+                                No deep reading material found for this specific module. Refer to the overview provided in the roadmap.
+                            </div>
+                        `}
+                    </div>
+                </article>
+            `).join('');
+
+            showModule(0);
+        }
+
+        function showModule(idx) {
+            // Update UI
+            document.querySelectorAll('.reading-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('bg-accent-blue/10', 'border-accent-blue/30', 'text-white'));
+
+            document.getElementById(`module-${idx}`).classList.add('active');
+            const navBtn = document.getElementById(`nav-${idx}`);
+            navBtn.classList.add('bg-accent-blue/10', 'border-accent-blue/30', 'text-white');
+
+            // Scroll reader to top
+            document.getElementById('contentView').scrollTop = 0;
+        }
+
+        fetchMaterial();
+    </script>
+</body>
+
+</html>

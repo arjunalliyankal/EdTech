@@ -22,10 +22,12 @@ async def shutdown_db_client():
 from app.api.auth import router as auth_router
 from app.api.profile import router as profile_router
 from app.api.assessment import router as assessment_router
+from app.api.courses import router as courses_router
 
 app.include_router(auth_router, prefix="/api/v1/auth", tags=["auth"])
 app.include_router(profile_router, prefix="/api/v1/profile", tags=["profile"])
 app.include_router(assessment_router, prefix="/api/v1/assessment", tags=["assessment"])
+app.include_router(courses_router, prefix="/api/v1/courses", tags=["courses"])
 
 # Set all CORS enabled origins
 app.add_middleware(

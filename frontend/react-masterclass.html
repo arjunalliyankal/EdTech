@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React 19 Masterclass - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e', 'success-green': '#32d74b' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-brand-black">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="student-dashboard.html" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </a>
+                <div class="text-xl font-semibold tracking-tight">React 19 Masterclass</div>
+            </div>
+            <div class="flex gap-4 items-center">
+                <span class="text-sm text-gray-400">Course</span>
+                <button onclick="window.location.href='student-dashboard.html'"
+                    class="text-sm font-medium text-gray-300 hover:text-white">Exit</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-6 max-w-4xl mx-auto">
+
+        <!-- Course Content -->
+        <section class="mb-12">
+            <div class="glass-panel p-8 rounded-2xl mb-8">
+                <span
+                    class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-xs font-medium mb-4">Module
+                    1</span>
+                <h1 class="text-4xl font-bold mb-6">What's New in React 19?</h1>
+
+                <div class="prose prose-invert max-w-none text-gray-300 space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        React 19 brings powerful new features for building modern web applications, focusing on
+                        performance, developer experience, and seamless data handling.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">1. React Server Components (RSC)</h3>
+                    <p>
+                        RSC allows you to render components on the server, sending only the necessary HTML and minimal
+                        JSON to the client. This reduces bundle size and improves initial load performance.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">2. Actions (Server Actions)</h3>
+                    <p>
+                        Actions allow you to write functions that execute on the server, callable directly from your
+                        client components. This simplifies data mutation and form handling, often removing the need for
+                        separate API endpoints for simple tasks.
+                    </p>
+                    <div class="bg-black/50 p-4 rounded-lg border border-white/10 font-mono text-sm">
+                        <span class="text-pink-500">async</span> <span class="text-pink-500">function</span> <span
+                            class="text-yellow-300">updateUser</span>(formData) {<br>
+                        &nbsp;&nbsp;<span class="text-purple-400">'use server'</span>;<br>
+                        &nbsp;&nbsp;<span class="text-pink-500">await</span> db.user.update({...});<br>
+                        }
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">3. useOptimistic Hook</h3>
+                    <p>
+                        The `useOptimistic` hook lets you show a different state while an async action is underway. This
+                        is perfect for "optimistic UI" updates where the interface reflects a change instantly, before
+                        the server confirms it.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Test Button -->
+        <div class="text-center mb-12">
+            <button onclick="startAssessment()" id="startBtn"
+                class="bg-cyan-500 text-black font-bold py-3 px-8 rounded-full hover:bg-cyan-400 transition-colors transform hover:scale-105 shadow-lg shadow-cyan-500/20">
+                Take Test
+            </button>
+        </div>
+
+        <!-- Assessment Section -->
+        <section id="assessment" class="hidden back-brand-dark/50 space-y-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm">?</span>
+                Module Assessment
+            </h2>
+
+            <!-- MCQ 1 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-cyan-500">
+                <p class="text-lg font-medium mb-4">1. What is the primary benefit of React Server Components?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="client"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Better client-side interactivity</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="bundle"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Reduced bundle size and faster initial load</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="css"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Automatic CSS generation</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-cyan-500">
+                <p class="text-lg font-medium mb-4">2. Which directive is used to mark a function as a Server Action?
+                </p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="server"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>'use server'</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="action"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>'use action'</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="backend"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>'use backend'</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-cyan-500">
+                <p class="text-lg font-medium mb-4">3. What does `useOptimistic` help with?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="db"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Optimizing database queries</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="ui"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Updating UI immediately before server response</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="auth"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Handling user authentication</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-cyan-500">
+                <p class="text-lg font-medium mb-4">4. Can Server Components use React state (useState) or effects
+                    (useEffect)?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="yes"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Yes, always</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="no"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>No, because they run on the server</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="sometimes"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Only in development mode</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-cyan-500">
+                <p class="text-lg font-medium mb-4">5. What is the main replacement for `useEffect` when fetching data
+                    in Server Components?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="async"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Async/await directly in the component body</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="swr"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Using SWR library</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="redux"
+                            class="w-4 h-4 text-cyan-400 bg-transparent border-gray-600 focus:ring-cyan-400">
+                        <span>Redux Thunk</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Descriptive Question -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-purple-500">
+                <p class="text-lg font-medium mb-4">6. Explain how 'Actions' simplify the traditional API route pattern
+                    in React applications.</p>
+                <textarea id="descAnswer" rows="4"
+                    class="w-full bg-black/30 border border-white/10 rounded-lg p-4 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
+                    placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <button onclick="submitAssessment()"
+                class="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-colors transform hover:scale-[1.01] active:scale-[0.99]">
+                Submit Assessment
+            </button>
+
+            <!-- Result Display -->
+            <div id="resultPanel" class="hidden glass-panel p-8 rounded-2xl text-center border-cyan-500 border-2">
+                <h3 class="text-3xl font-bold mb-2">Assessment Complete!</h3>
+                <p class="text-gray-400 mb-6">Here is how you performed:</p>
+                <div class="text-6xl font-bold text-cyan-400 mb-4" id="scoreDisplay">0%</div>
+                <p class="text-sm text-gray-500" id="feedbackMsg">Keep practicing!</p>
+                <button onclick="window.location.href='student-dashboard.html'"
+                    class="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-sm transition-colors">Return
+                    to Dashboard</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        function startAssessment() {
+            document.getElementById('assessment').classList.remove('hidden');
+            document.getElementById('startBtn').classList.add('hidden');
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitAssessment() {
+            let score = 0;
+            const answers = {
+                q1: 'bundle',
+                q2: 'server',
+                q3: 'ui',
+                q4: 'no',
+                q5: 'async'
+            };
+
+            // Calculate MCQ Score
+            for (let q in answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            // Check Descriptive (Simple validation: not empty)
+            const desc = document.getElementById('descAnswer').value.trim();
+            if (desc.length > 20) {
+                score++; // Give point for a decent length answer
+            }
+
+            const totalQuestions = 6;
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+            // Show Result
+            document.getElementById('assessment').lastElementChild.scrollIntoView({ behavior: 'smooth' });
+
+            document.querySelector('button[onclick="submitAssessment()"]').classList.add('hidden');
+
+            const resultPanel = document.getElementById('resultPanel');
+            resultPanel.classList.remove('hidden');
+
+            document.getElementById('scoreDisplay').innerText = `${percentage}%`;
+
+            if (percentage >= 80) {
+                document.getElementById('feedbackMsg').innerText = "Superb! You are ready for the future of React.";
+                document.getElementById('feedbackMsg').classList.add('text-success-green');
+            } else if (percentage >= 50) {
+                document.getElementById('feedbackMsg').innerText = "Good job! Keep updated with the latest docs.";
+            }
+        }
+    </script>
+</body>
+
+</html>

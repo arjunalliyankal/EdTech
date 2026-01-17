@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Python Patterns - EdTech AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'brand-black': '#0a0a0a', 'accent-blue': '#2997ff', 'brand-dark': '#1c1c1e', 'success-green': '#32d74b' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-brand-black">
+
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="student-dashboard.html" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </a>
+                <div class="text-xl font-semibold tracking-tight">Advanced Python Patterns</div>
+            </div>
+            <div class="flex gap-4 items-center">
+                <span class="text-sm text-gray-400">Course</span>
+                <button onclick="window.location.href='student-dashboard.html'"
+                    class="text-sm font-medium text-gray-300 hover:text-white">Exit</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-6 max-w-4xl mx-auto">
+
+        <!-- Course Content -->
+        <section class="mb-12">
+            <div class="glass-panel p-8 rounded-2xl mb-8">
+                <span
+                    class="inline-block px-3 py-1 bg-accent-blue/10 text-accent-blue rounded-full text-xs font-medium mb-4">Module
+                    1</span>
+                <h1 class="text-4xl font-bold mb-6">Mastering Design Patterns</h1>
+
+                <div class="prose prose-invert max-w-none text-gray-300 space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        Design patterns are typical solutions to commonly occurring problems in software design. In
+                        Python, these patterns can be implemented elegantly using the language's dynamic features.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">1. The Singleton Pattern</h3>
+                    <p>
+                        The Singleton pattern ensures that a class has only one instance and provides a global point of
+                        access to it. In Python, this can be implemented using a decorator or a metaclass, but a simple
+                        module-level variable is often the most "Pythonic" singleton.
+                    </p>
+                    <div class="bg-black/50 p-4 rounded-lg border border-white/10 font-mono text-sm">
+                        <span class="text-pink-500">class</span> <span class="text-yellow-300">Singleton</span>:<br>
+                        &nbsp;&nbsp;_instance = <span class="text-blue-400">None</span><br>
+                        <br>
+                        &nbsp;&nbsp;<span class="text-pink-500">def</span> <span
+                            class="text-green-400">__new__</span>(cls):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-500">if</span> cls._instance <span
+                            class="text-pink-500">is</span> <span class="text-blue-400">None</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cls._instance = <span
+                            class="text-purple-400">super</span>().__new__(cls)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-500">return</span> cls._instance
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">2. The Factory Pattern</h3>
+                    <p>
+                        Factory Method is a creational design pattern that provides an interface for creating objects in
+                        a superclass, but allows subclasses to alter the type of objects that will be created.
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-white mt-8 mb-4">3. The Observer Pattern</h3>
+                    <p>
+                        The Observer pattern defines a subscription mechanism to notify multiple objects about any
+                        events that happen to the object they're observing. It's heavily used in event-driven systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Test Button -->
+        <div class="text-center mb-12">
+            <button onclick="startAssessment()" id="startBtn"
+                class="bg-accent-blue text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-lg shadow-accent-blue/20">
+                Take Test
+            </button>
+        </div>
+
+        <!-- Assessment Section -->
+        <section id="assessment" class="hidden space-y-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <span
+                    class="w-8 h-8 rounded-full bg-accent-blue/20 flex items-center justify-center text-accent-blue text-sm">?</span>
+                Module Assessment
+            </h2>
+
+            <!-- MCQ 1 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-accent-blue">
+                <p class="text-lg font-medium mb-4">1. Which method is primarily responsible for creating a new instance
+                    in a Python Singleton implementation?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="init"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>__init__</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="new"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>__new__</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="call"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>__call__</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q1" value="str"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>__str__</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-accent-blue">
+                <p class="text-lg font-medium mb-4">2. What type of design pattern is the Factory Method?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="structural"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Structural</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="behavioral"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Behavioral</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q2" value="creational"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Creational</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-accent-blue">
+                <p class="text-lg font-medium mb-4">3. Which pattern relies on a subscription mechanism?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="singleton"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Singleton</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="observer"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Observer</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q3" value="facade"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Facade</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-accent-blue">
+                <p class="text-lg font-medium mb-4">4. In Python, what is the most "Pythonic" way to implement a simple
+                    Singleton?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="metaclass"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Using a complex Metaclass</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="module"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Using a Module</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q4" value="global"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Using a global variable in main</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-accent-blue">
+                <p class="text-lg font-medium mb-4">5. What does the `super()` function typically do?</p>
+                <div class="space-y-3">
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="parent"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Accesses methods from a parent class</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="destroy"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Destroys the current instance</span>
+                    </label>
+                    <label
+                        class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition-colors">
+                        <input type="radio" name="q5" value="global"
+                            class="w-4 h-4 text-accent-blue bg-transparent border-gray-600 focus:ring-accent-blue">
+                        <span>Creates a global variable</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Descriptive Question -->
+            <div class="glass-panel p-6 rounded-xl border-l-4 border-l-purple-500">
+                <p class="text-lg font-medium mb-4">6. Describe a real-world scenario where you would choose the
+                    Observer pattern over polling. (Short Answer)</p>
+                <textarea id="descAnswer" rows="4"
+                    class="w-full bg-black/30 border border-white/10 rounded-lg p-4 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
+                    placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <button onclick="submitAssessment()"
+                class="w-full bg-white text-black font-bold py-4 rounded-xl hover:bg-gray-200 transition-colors transform hover:scale-[1.01] active:scale-[0.99]">
+                Submit Assessment
+            </button>
+
+            <!-- Result Display -->
+            <div id="resultPanel" class="hidden glass-panel p-8 rounded-2xl text-center border-accent-blue border-2">
+                <h3 class="text-3xl font-bold mb-2">Assessment Complete!</h3>
+                <p class="text-gray-400 mb-6">Here is how you performed:</p>
+                <div class="text-6xl font-bold text-accent-blue mb-4" id="scoreDisplay">0%</div>
+                <p class="text-sm text-gray-500" id="feedbackMsg">Keep practicing!</p>
+                <button onclick="window.location.href='student-dashboard.html'"
+                    class="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-sm transition-colors">Return
+                    to Dashboard</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        function startAssessment() {
+            document.getElementById('assessment').classList.remove('hidden');
+            document.getElementById('startBtn').classList.add('hidden');
+            document.getElementById('assessment').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitAssessment() {
+            let score = 0;
+            const answers = {
+                q1: 'new',
+                q2: 'creational',
+                q3: 'observer',
+                q4: 'module',
+                q5: 'parent'
+            };
+
+            // Calculate MCQ Score
+            for (let q in answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            // Check Descriptive (Simple validation: not empty)
+            const desc = document.getElementById('descAnswer').value.trim();
+            if (desc.length > 20) {
+                score++; // Give point for a decent length answer
+            }
+
+            const totalQuestions = 6;
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+            // Show Result
+            document.getElementById('assessment').lastElementChild.scrollIntoView({ behavior: 'smooth' });
+
+            // Hide quiz items effectively or just overlay result? 
+            // Let's just append/show the result panel and hide the submit button to prevent double submit
+            document.querySelector('button[onclick="submitAssessment()"]').classList.add('hidden');
+
+            const resultPanel = document.getElementById('resultPanel');
+            resultPanel.classList.remove('hidden');
+
+            document.getElementById('scoreDisplay').innerText = `${percentage}%`;
+
+            if (percentage >= 80) {
+                document.getElementById('feedbackMsg').innerText = "Excellent work! You've mastered these concepts.";
+                document.getElementById('feedbackMsg').classList.add('text-success-green');
+            } else if (percentage >= 50) {
+                document.getElementById('feedbackMsg').innerText = "Good job! A little more study and you'll be perfect.";
+            }
+        }
+    </script>
+</body>
+
+</html>

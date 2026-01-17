@@ -16,11 +16,15 @@ class Subtopic(BaseModel):
     title: str
     description: str
 
+class Resource(BaseModel):
+    title: str
+    url: str
+
 class RoadmapItem(BaseModel):
     title: str
     description: str
     duration: str = "1 week"
-    resources: List[str] = []
+    resources: List[Resource] = []
     subtopics: List[Subtopic] = []
 
 class AssessmentResult(BaseModel):

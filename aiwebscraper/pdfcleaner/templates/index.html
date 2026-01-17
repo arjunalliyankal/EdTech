@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Cleaner & PDF Converter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .editor-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .editor {
+            width: 100%;
+            min-height: 300px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: vertical;
+        }
+        
+        .preview {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            min-height: 200px;
+            line-height: 1.8;
+        }
+        
+        .preview h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .preview h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+        
+        .preview p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Text Cleaner & PDF Converter</h1>
+            <p>Transform your messy text into well-structured documents</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="section">
+                <h2>1. Paste Your Text</h2>
+                <div class="input-group">
+                    <label for="inputText">Raw Text Input:</label>
+                    <textarea id="inputText" placeholder="Paste your text here with emojis and formatting..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="cleanText()">🧹 Clean Text</button>
+                </div>
+            </div>
+            
+            <div class="loading" id="loadingClean">
+                <div class="spinner"></div>
+                Processing your text...
+            </div>
+            
+            <div class="section" id="editorSection" style="display: none;">
+                <h2>2. Edit Your Text</h2>
+                <div class="editor-container">
+                    <label for="textEditor">Edit and refine your content:</label>
+                    <textarea id="textEditor" class="editor" placeholder="Your cleaned text will appear here for editing..."></textarea>
+                    <div class="btn-group">
+                        <button class="btn btn-success" onclick="convertToPDF()">📄 Convert to PDF</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="loading" id="loadingPDF">
+                <div class="spinner"></div>
+                Generating PDF...
+            </div>
+            
+            <div class="section" id="previewSection" style="display: none;">
+                <h2>3. Preview</h2>
+                <div class="preview" id="preview"></div>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <strong>Success!</strong> Your text has been cleaned and is ready for editing.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function cleanText() {
+            const inputText = document.getElementById('inputText').value;
+            
+            if (!inputText.trim()) {
+                alert('Please enter some text to clean!');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loadingClean').classList.add('show');
+            document.getElementById('editorSection').style.display = 'none';
+            document.getElementById('previewSection').style.display = 'none';
+            document.getElementById('successMessage').classList.remove('show');
+            
+            try {
+                const response = await fetch('/clean', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: inputText })
+                });
+                
+                const data = await response.json();
+                
+                // Hide loading
+                document.getElementById('loadingClean').classList.remove('show');
+                
+                // Show cleaned text in editor
+                document.getElementById('textEditor').value = data.cleaned_text;
+                document.getElementById('editorSection').style.display = 'block';
+                document.getElementById('successMessage').classList.add('show');
+                
+                // Show preview
+                updatePreview(data.cleaned_text);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingClean').classList.remove('show');
+                alert('Error cleaning text. Please try again.');
+            }
+        }
+        
+        function updatePreview(content) {
+            const preview = document.getElementById('preview');
+            preview.innerHTML = content;
+            document.getElementById('previewSection').style.display = 'block';
+        }
+        
+        // Update preview when editing
+        document.getElementById('textEditor').addEventListener('input', function() {
+            updatePreview(this.value);
+        });
+        
+        async function convertToPDF() {
+            const content = document.getElementById('textEditor').value;
+            
+            if (!content.trim()) {
+                alert('Please enter some content to convert!');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loadingPDF').classList.add('show');
+            
+            try {
+                const response = await fetch('/convert_to_pdf', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ content: content })
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'cleaned_document.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } else {
+                    alert('Error generating PDF. Please try again.');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error generating PDF. Please try again.');
+            } finally {
+                document.getElementById('loadingPDF').classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
